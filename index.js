@@ -5,10 +5,6 @@ const keyList = [["dhrxLiMx61NYsBrghQku", "N4NwLdTlYv"], ["62_kDpDAxX46nb5F88Dz"
 const keyIndex = Math.floor(Math.random() * keyList.length);
 const client_id = keyList[keyIndex][0];
 const client_secret = keyList[keyIndex][1];
-
-app.use(express.urlencoded({ extended: false }));
-app.use(cors());
-
 //파파고 번역
 app.get('/papago', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
