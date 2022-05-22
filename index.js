@@ -6,6 +6,9 @@ const keyIndex = Math.floor(Math.random() * keyList.length);
 const client_id = keyList[keyIndex][0];
 const client_secret = keyList[keyIndex][1];
 
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
+
 //파파고 번역
 app.get('/papago', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -54,6 +57,7 @@ app.get('/detectLangs', function (req, res) {
 });
 
 
-app.listen(3000, function () {
-    console.log('http://127.0.0.1:3000/translate app listening on port 3000!');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
 });
